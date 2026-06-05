@@ -1,4 +1,4 @@
 interface:
   display_name: "AndroidProjectAgentsInstaller"
-  short_description: "Install shared AI guidance docs into Android repos"
-  default_prompt: "Use $AndroidProjectAgentsInstaller to install and tailor ProjectAgents guidance into this Android project."
+  short_description: "Install shared AI guidance docs into Android repos after preference confirmation"
+  default_prompt: "Use $AndroidProjectAgentsInstaller to ask the user for installation preferences first, wait for explicit confirmation, and then install and tailor ProjectAgents guidance into this Android project."

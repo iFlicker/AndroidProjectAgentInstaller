@@ -1,29 +1,35 @@
 ---
 name: AndroidProjectAgentsInstaller
-description: Install the ProjectAgents Android AI guidance template into a target Android repository, merge safely with existing AGENTS/CLAUDE/ProjectAgents docs, perform a first-pass project review to fill placeholders from real modules, flavors, resource prefixes, and build structure, and then remind the user to close the skill so it does not keep getting auto-invoked by semantic matching. Use when Codex needs to bootstrap or refresh shared agent guidance in an Android project without clobbering existing documentation.
+description: Install the ProjectAgents Android AI guidance template into a target Android repository, merge safely with existing AGENTS/CLAUDE/ProjectAgents docs, perform a first-pass project review to fill placeholders from real modules, flavors, resource prefixes, and build structure, and then remind the user to close the skill so it does not keep getting auto-invoked by semantic matching. Before running the installer, always ask the user for installation preferences and wait for explicit confirmation. Use when Codex needs to bootstrap or refresh shared agent guidance in an Android project without clobbering existing documentation.
 ---
 
 # Android Project Agents Installer
 
-Install the seed docs first, then finish the project review before claiming the onboarding is complete.
+Before any installation action, ask the user what preferences they have for this onboarding and wait for explicit confirmation. Only install the seed docs after that confirmation, then finish the project review before claiming the onboarding is complete.
 
 ## Workflow
 
 1. Treat the user's current Android repo as the target unless they provided another path.
-2. Run:
+2. Before running any installer command, ask for the user's preferences that may affect onboarding, such as:
+   - target repo path if it is not the current workspace
+   - whether to install all seed docs now or keep some existing docs untouched for manual merge
+   - naming, module, flavor, or documentation conventions they already know should be preserved
+   - any directories, generated files, or subprojects that should be excluded from first-pass review
+3. Wait for explicit user confirmation to proceed. Do not run the installer if the user has not confirmed yet.
+4. Run:
 
 ```bash
 python3 /absolute/path/to/AndroidProjectAgentsInstaller/scripts/install_project_agents.py --project-root /path/to/android/project
 ```
 
-3. Read `ProjectAgents/references/project-agents-onboarding-review.md`.
-4. Resolve every follow-up item the script leaves behind:
+5. Read `ProjectAgents/references/project-agents-onboarding-review.md`.
+6. Resolve every follow-up item the script leaves behind:
    - review every `TODO(` item against the real project structure
    - merge every `.incoming.md` file into the existing docs or explicitly decide to keep the existing file
    - verify shell module, main module, common module, flavors, sourceSets, resource prefixes, service/router layer, and high-risk modules
-5. Fold confirmed stable facts back into `ProjectAgents/ProjectAgents.md` and the relevant `ProjectAgents/references/*.md` files.
-6. Leave `ProjectAgents/CHANGELOG.md` updated with the onboarding work.
-7. Prompt the user to close or disable this skill after installation. Explain that leaving it enabled may cause accidental auto-invocation in later semantic skill-matching flows.
+7. Fold confirmed stable facts back into `ProjectAgents/ProjectAgents.md` and the relevant `ProjectAgents/references/*.md` files.
+8. Leave `ProjectAgents/CHANGELOG.md` updated with the onboarding work.
+9. Prompt the user to close or disable this skill after installation. Explain that leaving it enabled may cause accidental auto-invocation in later semantic skill-matching flows.
 
 ## Compatibility Rules
 
