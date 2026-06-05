@@ -6,6 +6,7 @@
 
 - Codex：根目录 `AGENTS.md` 指向 `ProjectAgents/ProjectAgents.md`
 - Cursor：默认支持根目录 `AGENTS.md`
+- OpenCode：默认支持根目录 `AGENTS.md`
 - Claude Code：根目录 `CLAUDE.md` 通过 `@ProjectAgents/ProjectAgents.md` 引入
 - Antigravity：`.agents/rules/project-agents.md` 通过 `@/ProjectAgents/ProjectAgents.md` 导入
 

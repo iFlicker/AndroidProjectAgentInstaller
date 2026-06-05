@@ -1,6 +1,6 @@
 # Project Agents
 
-这套说明会被多个 AI agent app 共同读取和增量维护，例如 Codex、Cursor、Claude Code、Antigravity 等；新增的稳定项目认知、检索规则、结构变化和风险约束，必须优先沉淀到 `ProjectAgents/ProjectAgents.md` 或 `ProjectAgents/references/` 下的专题文件，不要只留在某个 app 私有记忆、临时规则或对话上下文里。
+这套说明会被多个 AI agent app 共同读取和增量维护，例如 Codex、Cursor、Claude Code、Antigravity、OpenCode 等；新增的稳定项目认知、检索规则、结构变化和风险约束，必须优先沉淀到 `ProjectAgents/ProjectAgents.md` 或 `ProjectAgents/references/` 下的专题文件，不要只留在某个 app 私有记忆、临时规则或对话上下文里。
 
 默认先用轻量模式处理高频日常任务，只有在复杂度明显升级时，才切到重型模式。
 
